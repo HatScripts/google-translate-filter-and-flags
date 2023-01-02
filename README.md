@@ -31,28 +31,19 @@ This userscript filters languages and shows country flags on [Google Translate](
 
 2. Then install this script from one of the following links:
    * [GitHub](https://github.com/HatScripts/google-translate-filter-and-flags/raw/main/google-translate-filter-and-flags.user.js) (Recommended)
-   * [Greasy Fork]()
+   * [Greasy Fork](https://greasyfork.org/en/scripts/457482-google-translate-filter-flags)
 
 ## Settings
 
-You can configure the settings by clicking the 'Settings' button under 'YouTube Auto-Liker' in your userscript manager.
+You can configure the settings by clicking the 'Settings' button under 'Google Translate: Filter & Flags' in your userscript manager.
 
-Setting                | Description                                         | Default
----------------------- | --------------------------------------------------- | -------
-Debug mode             | Log debug messages to the console                   | off
-Check frequency        | How often to attempt liking the video               | 5000 ms
-Watch threshold        | The percentage of the video watched before liking   | 50%
-Like if not subscribed | Like videos from channels you are not subscribed to | off
-
-## TODO
-
-* Add settings:
-  * Retries - How many times to retry liking upon failure.
-  * Whitelisted channels - A list of channels to *always* like the videos of, even if you are *not* subscribed to them.
-  * Blacklisted channels - A list of channels to *never* like the videos of, even if you are subscribed to them.
+Setting          | Description                                                             | Default
+---------------- | ----------------------------------------------------------------------- | -------
+Show flags       | Show country flags next to languages                                    | on
+Filter languages | Show only the specified languages                                       | on
+Languages shown  | The languages to show, as ISO 639-1 language codes, separated by commas | `ar,de,el,en,eo,es,fi,fr,it,ja,ko,la,no,pt,ru,sv,zh-CN`
 
 ## Acknowledgements
 
-* The userscript itself was inspired by [this one](https://web.archive.org/web/20220405112705/https://greasyfork.org/en/scripts/4948-youtube-auto-like-videos/code) by JoeSimmons, which hasn't worked since 2015
-* The debugger code was adapted from [this Stack Overflow answer](https://stackoverflow.com/a/32928812/2203482) by arctelix
+* The flags used are from [circle-flags](https://github.com/HatScripts/circle-flags)
 * The settings interface uses [GM_config](https://github.com/sizzlemctwizzle/GM_config) by sizzlemctwizzle
