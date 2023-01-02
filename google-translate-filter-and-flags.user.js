@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name        Google Translate: Filter & Flags
 // @namespace   https://github.com/HatScripts/google-translate-filter-and-flags
-// @version     1.0.1
+// @version     1.0.2
 // @license     MIT
 // @description Filters languages and shows country flags on Google Translate
 // @author      HatScripts
 // @icon        https://ssl.gstatic.com/translate/favicon.ico
 // @match       http://translate.google.com/*
 // @match       https://translate.google.com/*
-// @require     https://raw.githubusercontent.com/HatScripts/UserscriptHelpers/master/applyCss.min.js
 // @require     https://openuserjs.org/src/libs/sizzle/GM_config.js
+// @grant       GM_addStyle
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
@@ -88,5 +88,5 @@
     })
   }
 
-  applyCss(css)
+  GM_addStyle(css)
 })()
