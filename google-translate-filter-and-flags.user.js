@@ -1,28 +1,56 @@
 // ==UserScript==
 // @name        Google Translate: Filter & Flags
 // @namespace   https://github.com/HatScripts/google-translate-filter-and-flags
-// @version     1.0.0
+// @version     1.0.1
 // @license     MIT
 // @description Filters languages and shows country flags on Google Translate
 // @author      HatScripts
 // @icon        https://ssl.gstatic.com/translate/favicon.ico
 // @match       http://translate.google.com/*
 // @match       https://translate.google.com/*
-// @grant       none
-// @rut-at      document-start
 // @require     https://raw.githubusercontent.com/HatScripts/UserscriptHelpers/master/applyCss.min.js
+// @require     https://openuserjs.org/src/libs/sizzle/GM_config.js
+// @grant       GM_getValue
+// @grant       GM_setValue
+// @grant       GM_registerMenuCommand
+// @run-at      document-idle
 // ==/UserScript==
+
+/* global GM_config, GM_info, GM_registerMenuCommand */
 
 ;(() => {
   'use strict'
 
-  console.log(GM_info.script.name)
+  GM_config.init({
+    id: 'gtff_config',
+    title: GM_info.script.name + ' Settings',
+    fields: {
+      SHOW_FLAGS: {
+        label: 'Show flags',
+        type: 'checkbox',
+        default: true,
+        title: 'Show country flags next to languages'
+      },
+      FILTER_LANGUAGES: {
+        label: 'Filter languages',
+        type: 'checkbox',
+        default: true,
+        title: 'Show only the specified languages'
+      },
+      LANGUAGES_SHOWN: {
+        label: 'Languages shown',
+        type: 'textarea',
+        default: 'ar,de,el,en,eo,es,fi,fr,it,ja,ko,la,no,pt,ru,sv,zh-CN',
+        title: 'The languages to show, as ISO 639-1 language codes, separated by commas'
+      }
+    }
+  })
 
-  const OPTIONS = {
-    filterLangs: true,
-    showFlags: true,
-    languagesShown: 'ar,de,el,en,eo,es,fi,fr,it,ja,ko,la,no,pt,ru,sv,zh-CN',
-  }
+  GM_registerMenuCommand('Settings', () => {
+    GM_config.open()
+  })
+
+  console.log(GM_info.script.name)
 
   const LANG_MAP = {
     'iw': 'he', // Hebrew
@@ -39,14 +67,15 @@
 
   let css = '/* ' + GM_info.script.name + ' */'
 
-  if (OPTIONS.filterLangs) {
+  if (GM_config.get('FILTER_LANGUAGES')) {
     css += prefix + '{ display: none; }'
-    css += OPTIONS.languagesShown.split(',').map(lang => `${prefix}[data-language-code=${lang}]`).join(',')
+    console.log(GM_config.get('LANGUAGES_SHOWN').split(','))
+    css += GM_config.get('LANGUAGES_SHOWN').split(',').map(lang => `${prefix}[data-language-code=${lang}]`).join(',')
     css += '{ display: inline-flex; }'
     css += '.C96yib > .vSUSRc > ' + prefix + ' { display: inline-flex; }'
   }
 
-  if (OPTIONS.showFlags) {
+  if (GM_config.get('SHOW_FLAGS')) {
     //css += `${prefix}.RCaXn:not(.KKjvXb) .W5jNxd, ${prefix} .g3XDjb { display: none !important; }`
     css += `${prefix} > .l7O9Dc { background-repeat: no-repeat; background-size: contain; background-position-x: 6px; }`
     css += `${prefix} > .l7O9Dc > i { display: none !important; }`
