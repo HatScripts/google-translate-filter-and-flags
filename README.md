@@ -6,13 +6,13 @@ This userscript filters languages and shows country flags on [Google Translate](
 
 1. This is a userscript. To use it you'll first need one of the following browser extensions:
 
-                   | Tampermonkey                     | Greasemonkey | Violentmonkey
------------------- | -------------------------------- | ------------ | -------------
-![Chrome][c-logo]  | [Link][c-tm] ([Beta][c-tm-beta]) | -            | [Link][c-vm] ([Beta][c-vm-beta])
-![Firefox][f-logo] | [Link][f-tm]                     | [Link][f-gm] | [Link][f-vm]
-![Edge][e-logo]    | [Link][e-tm] ([Beta][e-tm-beta]) | -            | [Link][e-vm]
-![Safari][s-logo]  | [Link][s-tm]                     | -            | -
-![Opera][o-logo]   | [Link][o-tm]                     | -            | -
+   |                    | Tampermonkey                     | Greasemonkey | Violentmonkey
+   | ------------------ | -------------------------------- | ------------ | -------------
+   | ![Chrome][c-logo]  | [Link][c-tm] ([Beta][c-tm-beta]) | -            | [Link][c-vm] ([Beta][c-vm-beta])
+   | ![Firefox][f-logo] | [Link][f-tm]                     | [Link][f-gm] | [Link][f-vm]
+   | ![Edge][e-logo]    | [Link][e-tm] ([Beta][e-tm-beta]) | -            | [Link][e-vm]
+   | ![Safari][s-logo]  | [Link][s-tm]                     | -            | -
+   | ![Opera][o-logo]   | [Link][o-tm]                     | -            | -
 
 [c-logo]: https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome_24x24.png   "Chrome"
 [f-logo]: https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox_24x24.png "Firefox"
