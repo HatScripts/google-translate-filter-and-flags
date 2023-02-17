@@ -2,6 +2,8 @@
 
 This userscript filters languages and shows country flags on [Google Translate](https://translate.google.com/).
 
+_See also: [Wiktionary: Filter & Flags](https://github.com/HatScripts/wiktionary-filter-and-flags)_
+
 ## Download
 
 1. This is a userscript. To use it you'll first need one of the following browser extensions:
